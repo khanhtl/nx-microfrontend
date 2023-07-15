@@ -1,0 +1,61 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { loadRemoteModule } from '@angular-architects/module-federation';
+import {
+  WebComponentWrapper,
+  WebComponentWrapperOptions,
+} from '@angular-architects/module-federation-tools';
+import { environment } from '../environments/environment';
+
+const routes: Routes=[
+  {
+    path: '',
+    loadChildren: () =>
+      loadRemoteModule({
+        remoteEntry: `${environment.DASHBOARD_MICROAPP_ORIGIN}/remoteEntry.js`,
+        type: 'module',
+        exposedModule: './Module',
+      }).then((m) => m.DashboardModule),
+  },
+  {
+    path: 'heroes',
+    loadChildren: () =>
+      loadRemoteModule({
+        remoteEntry: `${environment.HEROES_MICROAPP_ORIGIN}/remoteEntry.js`,
+        type: 'module',
+        exposedModule: './Module',
+      }).then((m) => m.HeroesModule),
+  },
+  // {
+  //   path: 'review',
+  //   loadChildren: () => import('./web-component-wrapper/web-component-wrapper.module').then(m => m.WebComponentWrapperModule);
+  // },
+  {
+    path: 'review/:id',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'http://localhost:4203/remoteEntry.js',
+      exposedModule: './messages-wc',
+      remoteName: 'messages_microapp',
+      elementName: 'vue-component',
+    } as WebComponentWrapperOptions,
+  },
+  {
+    path: 'calendar',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: `${environment.CALENDAR_MICROAPP_ORIGIN}/remoteEntry.js`,
+      exposedModule: './calendar-wc',
+      remoteName: 'calendar_microapp',
+      elementName: 'calendar-element',
+    } as WebComponentWrapperOptions,
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule { }

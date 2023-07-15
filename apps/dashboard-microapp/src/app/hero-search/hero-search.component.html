@@ -1,0 +1,19 @@
+<div class="flex flex-col items-center mb-4">
+  <input
+    #searchBox
+    id="search-box"
+    (input)="search(searchBox.value)"
+    placeholder="Search for a hero"
+    class="shadow appearance-none border rounded w-2/5 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+  />
+  <ul
+    *ngIf="heroes$ | async as heroes; else null"
+    class="shadow appearance-none border bg-white rounded w-2/5 py-2 px-3 text-gray-700 leading-tight mt-px cursor-pointer"
+  >
+    <li *ngFor="let hero of heroes" class="mt-1">
+      <a routerLink="/heroes/detail/{{ hero.id }}">
+        {{ hero.name }}
+      </a>
+    </li>
+  </ul>
+</div>

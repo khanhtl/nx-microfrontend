@@ -1,0 +1,82 @@
+{
+  "name": "dashboard-microapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/dashboard-microapp/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dashboard-microapp",
+        "index": "apps/dashboard-microapp/src/index.html",
+        "main": "apps/dashboard-microapp/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/dashboard-microapp/tsconfig.app.json",
+        "assets": [
+          "apps/dashboard-microapp/src/favicon.ico",
+          "apps/dashboard-microapp/src/assets",
+          "apps/dashboard-microapp/src/netlify.toml"
+        ],
+        "styles": ["apps/dashboard-microapp/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/dashboard-microapp/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/dashboard-microapp/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "dashboard-microapp:build:production"
+        },
+        "development": {
+          "browserTarget": "dashboard-microapp:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "browserTarget": "dashboard-microapp:build",
+        "extraWebpackConfig": "apps/dashboard-microapp/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/dashboard-microapp/**/*.ts",
+          "apps/dashboard-microapp/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,82 @@
+{
+  "name": "heroes-microapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/heroes-microapp/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/heroes-microapp",
+        "index": "apps/heroes-microapp/src/index.html",
+        "main": "apps/heroes-microapp/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/heroes-microapp/tsconfig.app.json",
+        "assets": [
+          "apps/heroes-microapp/src/favicon.ico",
+          "apps/heroes-microapp/src/assets",
+          "apps/heroes-microapp/src/netlify.toml"
+        ],
+        "styles": ["apps/heroes-microapp/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/heroes-microapp/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/heroes-microapp/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "heroes-microapp:build:production"
+        },
+        "development": {
+          "browserTarget": "heroes-microapp:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "browserTarget": "heroes-microapp:build",
+        "extraWebpackConfig": "apps/heroes-microapp/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/heroes-microapp/**/*.ts",
+          "apps/heroes-microapp/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
