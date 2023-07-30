@@ -8,11 +8,13 @@
   <ul class="flex border-b border-gray-500 text-gray-300 mb-6">
     <li class="-mb-px mr-1">
       <a class="inline-block py-2 px-4 font-semibold" routerLink="/review/period"
+      (click)="handleNavigate('review', 'period')"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="text-cordovan bg-dark-bg border-l border-gray-500 border-t border-r rounded-t">Period</a>
     </li>
     <li class="-mb-px mr-1">
       <a class="inline-block py-2 px-4 font-semibold" routerLink="/review/target"
+      (click)="handleNavigate('review', 'target')"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="text-cordovan bg-dark-bg border-l border-gray-500 border-t border-r rounded-t">Target</a>
     </li>

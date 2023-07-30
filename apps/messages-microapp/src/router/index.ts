@@ -17,8 +17,6 @@ const routes: RouteRecordRaw[]=[
   }
 ]
 
-
-
 const router=createRouter({
   routes: routes,
   history: createWebHistory('review'),
@@ -26,11 +24,8 @@ const router=createRouter({
 });
 
 router.beforeEach((to, from) => {
-  console.log(to, from);
-
-  // ...
-  // explicitly return false to cancel the navigation
   return true
-})
+});
+
 
 export { router };

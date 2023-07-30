@@ -20,7 +20,7 @@ module.exports = (config, context) => {
       library: { type: 'var', name: 'messages_microapp' },
       filename: 'remoteEntry.js',
       exposes: {
-        './messages-wc': 'apps/messages-microapp/src/bootstrap.ts',
+        './Module': 'apps/messages-microapp/src/bootstrap.ts',
       },
       shared: {
         ...dependencies,

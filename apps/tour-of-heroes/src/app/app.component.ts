@@ -17,4 +17,13 @@ export class AppComponent {
     remoteName: 'messages_microapp',
     elementName: 'vue-component',
   };
+
+  handleNavigate(app: string, path: string) {
+    window.dispatchEvent(new CustomEvent('routeNavigate', {
+      detail: {
+        app,
+        path
+      }
+    }));
+  }
 }

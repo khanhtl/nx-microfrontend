@@ -1,5 +1,5 @@
 {
-  "root": "apps/messages-microapp",
+  "name": "messages-microapp",
   "sourceRoot": "apps/messages-microapp/src",
   "projectType": "application",
   "targets": {

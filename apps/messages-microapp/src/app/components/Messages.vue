@@ -1,5 +1,6 @@
 <script>
 import PubSub from 'pubsub-js';
+import { onBeforeUnmount, onMounted, onUnmounted, onActivated, onDeactivated, onUpdated } from 'vue';
 
 export default {
   name: 'Messages',
@@ -26,31 +27,23 @@ export default {
 </script>
 
 <script setup>
-import { useRoute, useRouter } from 'vue-router';
-import { watch } from 'vue';
-const route = useRoute();
+import { useRouter } from 'vue-router';
 const router = useRouter();
+let currentPath = '';
+onMounted(() => {
+  window.addEventListener('routeNavigate', handleNavigate);
+});
 
-watch(
-  route,
-  (val) => {
-    console.log(route);
-  },
-  {
-    deep: true,
-    immediate: true,
+onBeforeUnmount(() => {
+  window.removeEventListener('routeNavigate', handleNavigate);
+})
+
+function handleNavigate({ detail }) {
+  console.log('vào handleNavigate');
+  if (detail.app === 'review' && currentPath !== detail.path) {
+    router.push(detail.path);
   }
-);
-watch(
-  router,
-  (val) => {
-    console.log(router);
-  },
-  {
-    deep: true,
-    immediate: true,
-  }
-);
+}
 </script>
 
 <template>

@@ -26,17 +26,13 @@ const routes: Routes=[
         exposedModule: './Module',
       }).then((m) => m.HeroesModule),
   },
-  // {
-  //   path: 'review',
-  //   loadChildren: () => import('./web-component-wrapper/web-component-wrapper.module').then(m => m.WebComponentWrapperModule);
-  // },
   {
     path: 'review/:id',
     component: WebComponentWrapper,
     data: {
       type: 'script',
       remoteEntry: 'http://localhost:4203/remoteEntry.js',
-      exposedModule: './messages-wc',
+      exposedModule: './Module',
       remoteName: 'messages_microapp',
       elementName: 'vue-component',
     } as WebComponentWrapperOptions,

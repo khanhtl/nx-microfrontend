@@ -20,6 +20,9 @@
     "module": "ES2022",
     "lib": ["ES2022", "dom"],
     "paths": {
+      "angular/web-element-wrapper": [
+        "libs/angular/web-element-wrapper/src/index.ts"
+      ],
       "core": ["libs/core/src/index.ts"],
       "models": ["libs/models/src/index.ts"]
     },
