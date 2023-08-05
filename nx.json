@@ -38,7 +38,7 @@
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     }
   },
-  "defaultProject": "tour-of-heroes",
+  "defaultProject": "shell",
   "generators": {
     "@nrwl/angular:application": {
       "style": "css",

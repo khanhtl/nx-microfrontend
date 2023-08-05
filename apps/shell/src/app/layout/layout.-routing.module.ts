@@ -1,26 +1,61 @@
+import { environment } from '../../environments/environment';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import { WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
+import {
+  WebComponentWrapper,
+  WebComponentWrapperOptions,
+} from '@angular-architects/module-federation-tools';
+import { loadRemoteModule } from '@angular-architects/module-federation';
 
-const routes: Routes=[
+const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
-
-  {
-    path: 'review/:id',
-    component: WebComponentWrapper,
-    data: {
-      type: 'script',
-      remoteEntry: 'http://localhost:4203/remoteEntry.js',
-      exposedModule: './Module',
-      remoteName: 'messages_microapp',
-      elementName: 'vue-component',
-    } as WebComponentWrapperOptions,
-  }
-    ]
+      {
+        path: 'profile',
+        loadChildren: () =>
+          loadRemoteModule({
+            remoteEntry: `${environment.Profile}/remoteEntry.js`,
+            type: 'module',
+            exposedModule: './Module',
+          }).then((m) => m.EmployeeProfileModule),
+      },
+      {
+        path: 'review/:id',
+        component: WebComponentWrapper,
+        data: {
+          type: 'script',
+          remoteEntry: `${environment.Review}/remoteEntry.js`,
+          exposedModule: './Module',
+          remoteName: 'template_vue',
+          elementName: 'template-vue',
+        } as WebComponentWrapperOptions,
+      },
+      {
+        path: 'payroll/:id',
+        component: WebComponentWrapper,
+        data: {
+          type: 'script',
+          remoteEntry: `${environment.Review}/remoteEntry.js`,
+          exposedModule: './Module',
+          remoteName: 'template_vue',
+          elementName: 'template-vue',
+        } as WebComponentWrapperOptions,
+      },
+      {
+        path: 'timesheet/:id',
+        component: WebComponentWrapper,
+        data: {
+          type: 'script',
+          remoteEntry: `${environment.Review}/remoteEntry.js`,
+          exposedModule: './Module',
+          remoteName: 'template_vue',
+          elementName: 'template-vue',
+        } as WebComponentWrapperOptions,
+      },
+    ],
   },
 ];
 
@@ -28,4 +63,4 @@ const routes: Routes=[
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LayoutRoutingModule { }
+export class LayoutRoutingModule {}

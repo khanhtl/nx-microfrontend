@@ -1,7 +1,9 @@
 export const environment = {
   production: false,
-  DASHBOARD_MICROAPP_ORIGIN: 'http://localhost:4201',
-  HEROES_MICROAPP_ORIGIN: 'http://localhost:4202',
-  MESSAGES_MICROAPP_ORIGIN: 'http://localhost:4203',
-  CALENDAR_MICROAPP_ORIGIN: 'http://localhost:4204',
+  Profile: 'http://localhost:4201',
+  Welfare: 'http://localhost:4201',
+  Uniform: 'http://localhost:4201',
+  Review: 'http://localhost:4202',
+  Payroll: 'http://localhost:4203',
+  Timesheet: 'http://localhost:4204',
 };

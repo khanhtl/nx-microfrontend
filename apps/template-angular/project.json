@@ -1,0 +1,81 @@
+{
+  "name": "template-angular",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/template-angular/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/template-angular",
+        "index": "apps/template-angular/src/index.html",
+        "main": "apps/template-angular/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/template-angular/tsconfig.app.json",
+        "assets": [
+          "apps/template-angular/src/favicon.ico",
+          "apps/template-angular/src/assets"
+        ],
+        "styles": ["apps/template-angular/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/template-angular/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/template-angular/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "template-angular:build:production"
+        },
+        "development": {
+          "browserTarget": "template-angular:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "browserTarget": "template-angular:build",
+        "extraWebpackConfig": "apps/template-angular/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/template-angular/**/*.ts",
+          "apps/template-angular/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
