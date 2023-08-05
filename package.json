@@ -1,5 +1,5 @@
 {
-  "name": "angular-tour-of-heroes",
+  "name": "tour-of-heroes-microfrontends",
   "version": "0.0.0",
   "description": "Example project for the tour of heroes microfrontends",
   "license": "MIT",
@@ -11,7 +11,8 @@
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "e2e": "nx e2e",
-    "run:all": "nx run-many --targets=serve  --maxParallel=5 --projects=dashboard-microapp,heroes-microapp,messages-microapp,calendar-microapp,tour-of-heroes"
+    "start:shell": "nx run-many --targets=serve  --maxParallel=5 --projects=shell",
+    "run:all": "nx run-many --targets=serve  --maxParallel=5 --projects=dashboard-microapp,heroes-microapp,messages-microapp,calendar-microapp,shell"
   },
   "private": true,
   "dependencies": {

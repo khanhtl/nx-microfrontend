@@ -1,0 +1,43 @@
+
+.app-sidebar {
+  width: 200px;
+  background: #080625;
+  height: 100%;
+  padding: 8px 0;
+  position: relative;
+}
+
+li {
+  height: 40px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+
+}
+a:hover {
+  background: #503fea;
+  border-radius: 4px;
+}
+.sidebar-item a {
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.sub-sidebar {
+    padding: 30px 20px;
+    background: #fff;
+    position: absolute;
+    width: 270px;
+    top: 0;
+    left: 100%;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.05);
+    height: calc(100vh - 57px)!important;
+    z-index: 9999;
+    box-sizing: border-box!important;
+    outline: none;
+}

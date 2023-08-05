@@ -39,8 +39,9 @@ onBeforeUnmount(() => {
 })
 
 function handleNavigate({ detail }) {
-  console.log('vào handleNavigate');
   if (detail.app === 'review' && currentPath !== detail.path) {
+    console.log('vào handleNavigate');
+    currentPath = detail.path
     router.push(detail.path);
   }
 }

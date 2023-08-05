@@ -1,0 +1,39 @@
+<div class="app-sidebar">
+  <ul class="sidebar-items">
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLink="profile" routerLinkActive="router-link-active">Hồ sơ</a>
+    </li>
+
+
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLink="" routerLinkActive="router-link-active">Chấm công</a>
+    </li>
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLink="" routerLinkActive="router-link-active">Tiền lương</a>
+    </li>
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLink="" routerLinkActive="router-link-active">Đồng phục</a>
+    </li>
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLink="" routerLinkActive="router-link-active">Phúc lợi</a>
+    </li>
+
+    <li class="sidebar-item" (click)="handleClickSidebar()">
+      <a class="sidebar-link" routerLinkActive="router-link-active">Đánh giá</a>
+    </li>
+
+    <div appClickOutSide (onClickOutSide)="onClickOutSide()" class="sub-sidebar" *ngIf="isShowSubSidebar">
+      <li class="sidebar-sub-item">
+        <a class="sidebar-link" (click)="handleNavigate('review', 'review-period')" routerLink="/review/revew-period" routerLinkActive="router-link-active">Kỳ đánh giá</a>
+      </li>
+      <li class="sidebar-sub-item">
+        <a class="sidebar-link" (click)="handleNavigate('review', 'targets')" routerLink="/review/targets" routerLinkActive="router-link-active">Mục tiêu</a>
+      </li>
+    </div>
+  </ul>
+</div>

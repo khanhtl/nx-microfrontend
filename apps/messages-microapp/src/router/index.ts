@@ -6,11 +6,11 @@ const routes: RouteRecordRaw[]=[
     children: [
 
       {
-        path: '/target',
+        path: '/targets',
         component: () => import('../app/components/Target.vue'),
       },
       {
-        path: '/period',
+        path: '/review-period',
         component: () => import('../app/components/Period.vue'),
       },
     ]
