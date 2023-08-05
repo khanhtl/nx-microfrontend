@@ -1,4 +1,5 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader');
 const { dependencies } = require('../../package.json');
 const path = require('path');
@@ -27,6 +28,11 @@ module.exports = (config, context) => {
       },
     }),
     new VueLoaderPlugin()
+  );
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
+  })
   );
 
   // important workaround !!!
