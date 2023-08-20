@@ -14,7 +14,6 @@
     "serve:all": "nx run-many --targets=serve  --maxParallel=5 --projects=template-angular,template-vue,shell",
     "serve:angular": "nx run-many --targets=serve  --maxParallel=5 --projects=template-angular,shell",
     "serve:vue": "nx run-many --targets=serve  --maxParallel=5 --projects=template-vue,shell",
-
     "build:shell": "nx run-many --targets=build  --maxParallel=5 --projects=shell",
     "build:all": "nx run-many --targets=build  --maxParallel=5 --projects=template-angular,template-vue,shell",
     "build:angular": "nx run-many --targets=build  --maxParallel=5 --projects=template-angular",
@@ -35,6 +34,7 @@
     "@nrwl/web": "^15.7.0",
     "angular-in-memory-web-api": "~0.15.0",
     "autoprefixer": "^10.4.13",
+    "chart.js": "^4.3.3",
     "core-js": "^3.28.0",
     "file-loader": "^6.2.0",
     "postcss": "^8.4.21",
@@ -66,6 +66,7 @@
     "@nrwl/webpack": "15.6.3",
     "@nrwl/workspace": "15.6.3",
     "@svgr/webpack": "^6.1.2",
+    "@types/chartjs": "^0.0.31",
     "@types/jest": "28.1.1",
     "@types/node": "18.14.2",
     "@types/pubsub-js": "^1.8.3",
