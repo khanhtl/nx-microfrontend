@@ -21,11 +21,6 @@ const router=createRouter({
   routes: routes,
   // sub route to app
   history: createWebHistory('review'),
-  end: true
-});
-
-router.beforeEach((to, from) => {
-  return true
 });
 
 

@@ -34,17 +34,6 @@ const routes: Routes = [
         } as WebComponentWrapperOptions,
       },
       {
-        path: 'payroll/:id',
-        component: WebComponentWrapper,
-        data: {
-          type: 'script',
-          remoteEntry: `${environment.Review}/remoteEntry.js`,
-          exposedModule: './Module',
-          remoteName: 'template_vue',
-          elementName: 'template-vue',
-        } as WebComponentWrapperOptions,
-      },
-      {
         path: 'timesheet/:id',
         component: WebComponentWrapper,
         data: {

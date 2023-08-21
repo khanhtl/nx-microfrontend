@@ -18,8 +18,6 @@ export const initChartJs=(el: any, type: any) => {
     type: type ?? 'bar',
     data: data,
   };
-  console.log(el);
-
   if (el) {
     new Chart(el, config as any);
   }

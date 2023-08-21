@@ -61,3 +61,6 @@ table {
   min-height: 0;
   flex: 1;
 }
+.router-link-active {
+  color: red !important;
+}

@@ -3,6 +3,7 @@ import { AppsName } from './../../common/constant/apps-name';
 import { appSidebarItems } from './../../configs/sidebar-items';
 import { SidebarItem } from './../../types/sidebar-item';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +11,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
+  constructor(private router: Router) {}
 
   isShowSubSidebar=false;
 
@@ -32,6 +34,8 @@ export class SidebarComponent {
    * @param path
    */
   handleNavigate(app: string, path: string) {
+    console.log('handleNavigate', app, path);
+
     this.isShowSubSidebar=false
     window.dispatchEvent(new CustomEvent('routeNavigate', {
       detail: {
