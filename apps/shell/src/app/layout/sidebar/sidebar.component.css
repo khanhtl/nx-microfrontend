@@ -40,4 +40,5 @@ a:hover {
     z-index: 9999;
     box-sizing: border-box!important;
     outline: none;
+    cursor: pointer;
 }

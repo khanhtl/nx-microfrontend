@@ -1,0 +1,5 @@
+.products div {
+  width: 200px;
+  display: inline-block;
+  margin: 16px;
+}

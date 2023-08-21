@@ -34,6 +34,7 @@
     "@nrwl/web": "^15.7.0",
     "angular-in-memory-web-api": "~0.15.0",
     "autoprefixer": "^10.4.13",
+    "axios": "^1.4.0",
     "chart.js": "^4.3.3",
     "core-js": "^3.28.0",
     "file-loader": "^6.2.0",
