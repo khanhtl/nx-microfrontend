@@ -5,8 +5,6 @@
       <a class="sidebar-link" routerLink="profile" routerLinkActive="router-link-active">Hồ sơ</a>
     </li>
 
-
-
     <li class="sidebar-item">
       <a class="sidebar-link" routerLink="/d" routerLinkActive="router-link-active">Chấm công</a>
     </li>
@@ -26,7 +24,6 @@
     <li class="sidebar-item" (click)="handleClickSidebar()">
       <a class="sidebar-link" routerLinkActive="router-link-active">Đánh giá</a>
     </li>
-
     <div appClickOutSide (onClickOutSide)="onClickOutSide()" class="sub-sidebar" *ngIf="isShowSubSidebar">
       <li class="sidebar-sub-item">
         <a class="sidebar-link" (click)="handleNavigate('review', 'review-period')" routerLink="/review/review-period" routerLinkActive="router-link-active">Kỳ đánh giá</a>

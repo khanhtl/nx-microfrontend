@@ -14,6 +14,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full'
+      },
+      {
         path: 'profile',
         loadChildren: () =>
           loadRemoteModule({
@@ -23,7 +28,7 @@ const routes: Routes = [
           }).then((m) => m.EmployeeProfileModule),
       },
       {
-        path: 'review/:id',
+        path: 'review/:sub-app',
         component: WebComponentWrapper,
         data: {
           type: 'script',

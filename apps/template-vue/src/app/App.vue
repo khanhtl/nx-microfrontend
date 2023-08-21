@@ -16,7 +16,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('routeNavigate', handleNavigate);
 });
-
 /**
  * Chuyển router vào các màn hình
  * @param {*} param0

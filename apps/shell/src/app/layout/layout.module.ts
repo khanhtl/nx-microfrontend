@@ -1,5 +1,5 @@
 import { ClickOutSideDirective } from './../click-out-side.directive';
-import { LayoutRoutingModule } from './layout.-routing.module';
+import { LayoutRoutingModule } from './layout-routing.module';
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';

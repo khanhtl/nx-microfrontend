@@ -19,10 +19,6 @@ export class SidebarComponent {
     setTimeout(() => {
       this.isShowSubSidebar = true
     });
-    // if (sidebar.SubItems?.length) {
-    // } else {
-
-    // }
   }
   onClickOutSide() {
     this.isShowSubSidebar=false
@@ -34,8 +30,7 @@ export class SidebarComponent {
    * @param path
    */
   handleNavigate(app: string, path: string) {
-    console.log('handleNavigate', app, path);
-
+    (window as any).path=path;
     this.isShowSubSidebar=false
     window.dispatchEvent(new CustomEvent('routeNavigate', {
       detail: {

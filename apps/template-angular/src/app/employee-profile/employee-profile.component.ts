@@ -33,8 +33,6 @@ export class EmployeeProfileComponent {
         type: 'bar',
         data: data,
       };
-      console.log(document?.getElementById('bar'));
-
       new Chart(document?.getElementById('bar') as any, config as any);
       new Chart(document?.getElementById('line') as any, { ...config, type: 'line' });
       new Chart(document?.getElementById('doughnut') as any, { ...config, type: 'doughnut' });
