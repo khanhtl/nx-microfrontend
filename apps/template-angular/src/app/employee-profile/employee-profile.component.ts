@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../product.service';
 
@@ -7,11 +8,10 @@ import { ProductService } from '../product.service';
   styleUrls: ['./employee-profile.component.css'],
 })
 export class EmployeeProfileComponent {
-  private readonly productService=inject(ProductService);
-  products$=this.productService.getProducts();
-  constructor() {
-
-  }
-  ngOnInit() {
+  readonly #productService=inject(ProductService);
+  readonly #router=inject(Router);
+  products$=this.#productService.getProducts();
+  showDetail(id: any) {
+    this.#router.navigate([`profile/${id}`]);
   }
 }

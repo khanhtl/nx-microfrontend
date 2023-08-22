@@ -1,6 +1,6 @@
 <div class="products profile" *ngIf="products$ | async as products; else fallback;">
   <div *ngFor="let item of products">
-    <img [src]="item.image" alt="" width="200" height="100" />
+    <img (click)="showDetail(item.id)" [src]="item.image" alt="" width="200" height="100" />
     <p>{{ item.title }}</p>
   </div>
 </div>

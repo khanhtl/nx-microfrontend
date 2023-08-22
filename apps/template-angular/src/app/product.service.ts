@@ -14,4 +14,7 @@ export class ProductService {
   getProducts(): Observable<any> {
     return this.http.get('https://fakestoreapi.com/products');
   }
+  getProduct(id: any): Observable<any> {
+    return this.http.get(`https://fakestoreapi.com/products/${id}`);
+  }
 }

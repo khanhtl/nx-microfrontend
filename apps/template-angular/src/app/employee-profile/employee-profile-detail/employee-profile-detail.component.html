@@ -1,0 +1,12 @@
+<div *ngIf="product$ | async as product; else fallback">
+  <a [routerLink]="['/profile']"><==Back to list</a>
+  <br>
+  <img width="300" height="200"  [src]="product.image" />
+  <h2>{{ product.title }}</h2>
+  <h3>{{ product.category }}</h3>
+  <p>{{ product.description }}</p>
+  <br>
+  <p>${{ product.price }}</p>
+
+</div>
+<ng-template #fallback>Loading...</ng-template>

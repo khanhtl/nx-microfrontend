@@ -4,9 +4,15 @@ import { CommonModule } from '@angular/common';
 import { EmployeeProfileComponent } from './employee-profile.component';
 import { EmployeeProfileRoutingModule } from './employee-profile-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { EmployeeProfileDetailComponent } from './employee-profile-detail/employee-profile-detail.component';
 
 @NgModule({
-  declarations: [EmployeeProfileComponent],
-  imports: [CommonModule, HttpClientModule, FormsModule, EmployeeProfileRoutingModule],
+  declarations: [EmployeeProfileComponent, EmployeeProfileDetailComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    EmployeeProfileRoutingModule,
+  ],
 })
 export class EmployeeProfileModule {}
