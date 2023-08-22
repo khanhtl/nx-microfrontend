@@ -1,17 +1,17 @@
 <template>
-  <div style="height: calc(100vh - 56px); overflow: auto">
-    <canvas class="chart" id="line"></canvas>
-    <canvas class="chart" id="bar"></canvas>
-    <canvas class="chart" id="doughnut"></canvas>
+  <div class="products review-period gap-8">
+    <div v-for="item in products">
+      <img :src="item.image" alt="" width="200" height="100" />
+      <p>{{ item.title }}</p>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { initChartJs } from '../../../../../../libs/core/src/lib/chartjs/init';
-const isLoading=ref(true);
-onMounted(() => {
-    initChartJs(document.querySelector('#doughnut'), 'doughnut')
-    initChartJs(document.querySelector('#bar'), 'bar')
-    initChartJs(document.querySelector('#line'), 'line')
-});
+import axios from 'axios';
+import { ref } from 'vue';
+async function list() {
+  const response = await axios.get('https://fakestoreapi.com/products');
+  return response.data;
+}
+const products = ref(await list());
 </script>

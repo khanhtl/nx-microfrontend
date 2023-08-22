@@ -1,7 +1,13 @@
-<div style="height: calc(100vh - 56px); overflow: auto;">
-  <div style="margin-top: 150px;" *ngIf="isLoading">
+<div class="products profile" *ngIf="products$ | async as products; else fallback;">
+  <div *ngFor="let item of products">
+    <img [src]="item.image" alt="" width="200" height="100" />
+    <p>{{ item.title }}</p>
+  </div>
+</div>
+<ng-template #fallback>
+  <div style="margin-top: 150px">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-      style="margin:auto;background:#fff;display:block;" width="200px" height="200px" viewBox="0 0 100 100"
+      style="margin: auto; background: #fff; display: block" width="200px" height="200px" viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid">
       <circle cx="84" cy="50" r="10" fill="#e15b64">
         <animate attributeName="r" repeatCount="indefinite" dur="0.25s" calcMode="spline" keyTimes="0;1" values="10;0"
@@ -35,10 +41,4 @@
       </circle>
     </svg>
   </div>
-  <div>
-    <canvas id="bar"></canvas>
-    <canvas id="line"></canvas>
-    <canvas id="doughnut"></canvas>
-  </div>
-
-</div>
+</ng-template>

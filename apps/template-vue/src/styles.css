@@ -3,3 +3,6 @@
   display: inline-block;
   margin: 16px;
 }
+.review-period div {
+  color: red;
+}

@@ -15,5 +15,5 @@ async function list() {
     )
     return response.data
   }
-const products = ref(await list())
+const products=ref(await list());
 </script>
