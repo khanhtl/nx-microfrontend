@@ -28,6 +28,17 @@ const routes: Routes = [
           }).then((m) => m.EmployeeProfileModule),
       },
       {
+        path: 'review/:sub-app/:id',
+        component: WebComponentWrapper,
+        data: {
+          type: 'script',
+          remoteEntry: `${environment.Review}/remoteEntry.js`,
+          exposedModule: './Module',
+          remoteName: 'template_vue',
+          elementName: 'template-vue',
+        } as WebComponentWrapperOptions,
+      },
+      {
         path: 'review/:sub-app',
         component: WebComponentWrapper,
         data: {

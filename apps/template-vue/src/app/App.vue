@@ -21,9 +21,8 @@ onBeforeUnmount(() => {
  * @param {*} param0
  */
 function handleNavigate({ detail }) {
-  if (detail.app === 'review' && currentPath !== detail.path) {
-    currentPath = detail.path;
-    router.push(detail.path);
+  if (detail.app === 'review' && currentPath !== detail.name) {
+    router.push({name: detail.name});
   }
 }
 </script>

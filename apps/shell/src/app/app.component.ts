@@ -5,14 +5,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  handleNavigate(app: string, path: string) {
-    window.dispatchEvent(
-      new CustomEvent('routeNavigate', {
-        detail: {
-          app,
-          path,
-        },
-      })
-    );
-  }
 }
+

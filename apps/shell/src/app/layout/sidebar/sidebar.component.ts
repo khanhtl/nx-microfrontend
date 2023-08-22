@@ -29,13 +29,13 @@ export class SidebarComponent {
    * @param app
    * @param path
    */
-  handleNavigate(app: string, path: string) {
-    (window as any).path=path;
+  handleNavigate(app: string, name: string) {
+    (window as any).name=name;
     this.isShowSubSidebar=false
     window.dispatchEvent(new CustomEvent('routeNavigate', {
       detail: {
         app,
-        path
+        name
       }
     }));
   }
